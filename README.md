@@ -11,8 +11,9 @@ An AI powered flight app that helps users decide when to book their tickets at t
 
 ### Who is it meant for?
 People who have to book emergency flights, cheapest and safest flights ,and plan a vacation to their budget.
+
 ---
-Technology used:
+### Technology used:
 HTML, CSS, JSON -> FRONTEND
 PYTHON, FLASK API -> BACKEND
 GOOGLE FLIGHT BOOKING -> API
