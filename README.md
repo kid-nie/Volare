@@ -24,5 +24,5 @@ People who have to book emergency flights, cheapest and safest flights ,and plan
 
 ---
 ### Navigating my github files:
-1. ** **Chatbot building and testing are stored in this folder.  It has the layout of the chatbot, initial testing done using 2 different images (input and output) ,and final testing before release (input and output).
+1. **CHATBOT TESTING IMAGES** Chatbot building and testing are stored in this folder.  It has the layout of the chatbot, initial testing done using 2 different images (input and output) ,and final testing before release (input and output).
 2. 
