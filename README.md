@@ -23,6 +23,7 @@ People who have to book emergency flights, cheapest and safest flights ,and plan
 6. FIGMA -> MOCKUP 
 
 ---
-### Navigating my github files:
-1. **CHATBOT TESTING IMAGES** Chatbot building and testing are stored in this folder.  It has the layout of the chatbot, initial testing done using 2 different images (input and output) ,and final testing before release (input and output).
-2. 
+### Navigating my github files (documentation) :
+1. **CHATBOT TESTING IMAGES** - Chatbot building and testing are stored in this folder.  It has the layout of the chatbot, initial testing done using 2 different images (input and output) ,and final testing before release (input and output).
+2. **BACKUP DATASET** - Incase of any API failure or credits running out, i have made a backup dataset storing details of flights(airline, route, model, time arrival, time destination, connecting flight, destination location, arrival location, price). A python code has been already made and tested for this backup dataset, implemented a fake AI on python to give pop up messages as intended in the planned project. Python file is also uploaded as **IPYNB** within.
+3. **Testing and Trial of code on PYTHON** - this file contains the above mentioned testing of dataset files with their input and output. All are stored as images.
