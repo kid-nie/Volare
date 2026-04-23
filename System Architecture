@@ -1,0 +1,13 @@
+User (Chat UI)
+      ↓
+Gemini Travel Brain (AI)
+      ↓
+Destination Suggestions
+      ↓
+User selects destination
+      ↓
+Flight Search Engine (API like SerpAPI Google Flights)
+      ↓
+Pre-filled Book Flight Page
+      ↓
+User enters dates → sees results → books
