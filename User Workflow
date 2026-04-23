@@ -1,0 +1,21 @@
+1. User opens app
+
+2. Types: "cheap beach vacation under $500"
+
+3. Gemini responds:
+   → Bali, Sri Lanka, Thailand
+
+4. User confirms: Bali
+
+5. App redirects:
+   /book?destination=DPS
+
+6. User enters dates
+
+7. Flask calls flight API
+
+8. Results shown
+
+9. User chooses flight
+
+10. User can book flight on official airline page
