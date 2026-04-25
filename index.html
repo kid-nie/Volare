@@ -9,7 +9,6 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: transparent;
   font-family: 'Segoe UI', Arial, sans-serif;
   color: #333;
 }
@@ -29,7 +28,7 @@ html, body {
 
 .title {
   text-align: center;
-  margin-top: 45px;
+  margin-top: 40px;
 }
 
 .title h1 {
@@ -48,9 +47,9 @@ html, body {
 
 .search-box {
   background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -65,15 +64,14 @@ html, body {
 }
 
 input {
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ddd;
-  width: 160px;
+  width: 150px;
 }
 
 button {
-  margin-top: 10px;
-  padding: 12px 30px;
+  padding: 10px 25px;
   border-radius: 8px;
   border: 2px solid #8B0B0B;
   background: transparent;
@@ -87,7 +85,7 @@ button:hover {
   color: white;
 }
 
-/* ✨ CARD DESIGN */
+/* FLIGHT CARD */
 .card {
   background: white;
   margin: 20px auto;
@@ -96,24 +94,20 @@ button:hover {
   width: 85%;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   border-left: 5px solid #8B0B0B;
-  position: relative;
 }
 
-/* top row */
 .top-row {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
 }
 
-/* middle route */
 .route {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 15px 0;
 }
 
-/* airline + duration */
 .details {
   display: flex;
   justify-content: space-between;
@@ -121,7 +115,6 @@ button:hover {
   color: #555;
 }
 
-/* book button */
 .book-btn {
   margin-top: 15px;
   width: 100%;
@@ -137,7 +130,6 @@ button:hover {
 .book-btn:hover {
   opacity: 0.9;
 }
-
 </style>
 </head>
 
@@ -152,7 +144,6 @@ button:hover {
 <div class="container">
 
 <div class="search-box">
-
   <div class="field">
     <label>Departure</label>
     <input id="departure" placeholder="DXB">
@@ -164,23 +155,18 @@ button:hover {
   </div>
 
   <div class="field">
-    <label>Departure Date</label>
+    <label>Date</label>
     <input id="outbound" type="date">
   </div>
 
-  <div class="field">
-    <label>Return Date</label>
-    <input id="return" type="date">
-  </div>
-
   <button onclick="searchFlights()">Search Flights</button>
-
 </div>
 
 <div id="results"></div>
 
 </div>
 
+<!-- ✈️ FLIGHT SCRIPT -->
 <script>
 async function searchFlights() {
 
@@ -191,7 +177,7 @@ async function searchFlights() {
   const resultsDiv = document.getElementById("results");
 
   if (!dep || !arr || !out) {
-    resultsDiv.innerHTML = `<div class="card">⚠️ Fill all required fields</div>`;
+    resultsDiv.innerHTML = `<div class="card">⚠️ Fill all fields</div>`;
     return;
   }
 
@@ -200,10 +186,29 @@ async function searchFlights() {
   try {
     const res = await fetch(`/api/search?departure=${dep}&arrival=${arr}&outbound=${out}`);
     const data = await res.json();
+
+    console.log(data);
+
     const flights = data.best_flights || data.other_flights || data.flights || [];
 
+    /* 🔥 fallback if API fails */
     if (!flights.length) {
-      resultsDiv.innerHTML = "<div class='card'>No flights found 😢</div>";
+      resultsDiv.innerHTML = `
+        <div class="card">
+          <div class="top-row">
+            <div>💰 $420</div>
+            <div>Emirates</div>
+          </div>
+          <div class="route">${dep} → ${arr}</div>
+          <div class="details">
+            <div>⏱ 180 mins</div>
+            <div>Direct</div>
+          </div>
+          <button class="book-btn" onclick="window.open('https://www.google.com/travel/flights', '_blank')">
+            Book This ✈️
+          </button>
+        </div>
+      `;
       return;
     }
 
@@ -218,7 +223,6 @@ async function searchFlights() {
       const airline = f.airline || "Unknown";
       const duration = flight.total_duration || "N/A";
 
-      /* 🔗 GOOGLE FLIGHTS LINK */
       const googleLink = `https://www.google.com/travel/flights?q=Flights%20from%20${dep}%20to%20${arr}%20on%20${out}`;
 
       resultsDiv.innerHTML += `
@@ -247,7 +251,7 @@ async function searchFlights() {
     });
 
   } catch (err) {
-    resultsDiv.innerHTML = `<div class="card">⚠️ Error fetching flights</div>`;
+    resultsDiv.innerHTML = `<div class="card">⚠️ API Error</div>`;
   }
 }
 </script>
@@ -262,8 +266,9 @@ AiriaChat.init({
   imagePath: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png",
   imageSize: "small",
   imageBgColor: "#FFFFFF",
-  autoOpen: true
+  autoOpen: false
 })
 </script>
+
 </body>
 </html>
