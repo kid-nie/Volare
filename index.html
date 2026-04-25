@@ -53,6 +53,7 @@
       padding-bottom: 100px;
     }
 
+    /* ORIGINAL INPUT STYLE */
     .search-box {
       background: white;
       padding: 30px;
@@ -104,6 +105,8 @@
       background: #8B0B0B;
       color: white;
     }
+
+    /* FLIGHT CARD */
     .card {
       background: white;
       margin: 20px auto;
@@ -180,6 +183,11 @@
       <input id="outbound" type="date">
     </div>
 
+    <div class="field">
+      <label>Return Date</label>
+      <input id="return" type="date">
+    </div>
+
     <button onclick="searchFlights()">Search Flights</button>
 
   </div>
@@ -187,24 +195,26 @@
   <div id="results"></div>
 </div>
 
+<!-- FLIGHT SCRIPT -->
 <script>
 async function searchFlights() {
 
   const dep = document.getElementById("departure").value.trim();
   const arr = document.getElementById("arrival").value.trim();
   const out = document.getElementById("outbound").value;
+  const ret = document.getElementById("return").value;
 
   const resultsDiv = document.getElementById("results");
 
   if (!dep || !arr || !out) {
-    resultsDiv.innerHTML = `<div class="card">⚠️ Please fill all fields</div>`;
+    resultsDiv.innerHTML = `<div class="card">⚠️ Please fill required fields</div>`;
     return;
   }
 
   resultsDiv.innerHTML = "<p>Searching flights... ✈️</p>";
 
   try {
-    const res = await fetch(`/api/search?departure=${dep}&arrival=${arr}&outbound=${out}`);
+    const res = await fetch(`/api/search?departure=${dep}&arrival=${arr}&outbound=${out}&return=${ret}`);
     const data = await res.json();
 
     console.log(data);
@@ -221,7 +231,7 @@ async function searchFlights() {
           <div class="route">${dep} → ${arr}</div>
           <div class="details">
             <div>⏱ 180 mins</div>
-            <div>Direct</div>
+            <div>Round Trip</div>
           </div>
           <button class="book-btn" onclick="window.open('https://www.google.com/travel/flights', '_blank')">
             Book This ✈️
@@ -242,7 +252,7 @@ async function searchFlights() {
       const airline = f.airline || "Unknown";
       const duration = flight.total_duration || "N/A";
 
-      const googleLink = `https://www.google.com/travel/flights?q=Flights%20from%20${dep}%20to%20${arr}%20on%20${out}`;
+      const googleLink = `https://www.google.com/travel/flights?q=Flights%20from%20${dep}%20to%20${arr}%20on%20${out}%20return%20${ret}`;
 
       resultsDiv.innerHTML += `
         <div class="card">
@@ -258,7 +268,7 @@ async function searchFlights() {
 
           <div class="details">
             <div>⏱ ${duration} mins</div>
-            <div>Direct</div>
+            <div>${ret ? "Round Trip" : "One Way"}</div>
           </div>
 
           <button class="book-btn" onclick="window.open('${googleLink}', '_blank')">
@@ -274,7 +284,6 @@ async function searchFlights() {
   }
 }
 </script>
-
 <script type="module">
 import AiriaChat from "https://embed-api.airia.ai/get-chat-embed.js"
 
