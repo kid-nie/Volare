@@ -21,13 +21,33 @@
   z-index: -1;
 }
 
-    h1 {
-      text-align: center;
-      margin-top: 50px;
-      color: #8B0B0B;
-      font-size: 2.5rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
+    <div style="text-align:center; padding-top:40px;">
+  <div style="
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+  ">
+    <h1 style="
+      margin:0;
+      font-size:2.6rem;
+      color:#1f3b57;
+      font-weight:700;
+      letter-spacing:1px;
+    ">
+      Volare ✈️
+    </h1>
+
+    <p style="
+      margin:5px 0 0;
+      color:#4b6b88;
+      font-size:1rem;
+    ">
+      Find the cheapest flights in seconds
+    </p>
+  </div>
+</div>
 
     .container {
       width: 90%;
@@ -106,19 +126,17 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Floating Chatbot Button (Placeholder for Airia) */
     .airia-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #8B0B0B;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(139, 11, 11, 0.4);
-    }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #8B0B0B, #c21818);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -161,7 +179,7 @@
                         apiKey: "ak-MjQzNzg2OTUyM3wxNzc2OTY1NTAzOTY0fHRpLVpHVmpiMlJwYm1jZ1pHRjBZU0J6WTJsbGJtTmxMVTl3Wlc0Z1VtVm5hWE4wY21GMGFXOXVMVkJ5YjJabGMzTnBiMjVoYkY5aVpXVXdZbUl3T0MweE9USTNMVFF4TVdRdFlqSTVPUzB4WkRSak5HTTRaVFUwWWpRPXwxfDE0MjA5NzMzMDAg",
                         apiUrl: "https://embed-api.airia.ai",
                         greeting: "Hello! How can I assist you today?",
-                        imagePath: "https://yoursite.com/assets/chatbot-icon.png",
+                        imagePath: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png",
                         imageSize: "small",
                         imageBgColor: "#FFFFFF",
                         autoOpen: true})
@@ -177,7 +195,6 @@ async function searchFlights() {
 
   const resultsDiv = document.getElementById("results");
 
-  // ✅ INPUT VALIDATION (THIS FIXES YOUR ISSUE)
   if (!dep || !arr || !out) {
     resultsDiv.innerHTML = `
       <div class='card'>
@@ -223,8 +240,6 @@ async function searchFlights() {
     `;
   }
 }
-
-  // Handle auto-fill from the chatbot recommendation
   window.onload = () => {
     const params = new URLSearchParams(window.location.search);
     const destination = params.get("destination");
