@@ -16,6 +16,7 @@ Always include:
 IF user asks for destination suggestions WITH a reference (place, vibe, or image):
 → Suggest 3 travel destinations
 → For each include:
+- Country abbreviation for flight travel
 - Destination name
 - Why its good
 
