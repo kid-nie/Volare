@@ -200,7 +200,7 @@ async function searchFlights() {
   try {
     const res = await fetch(`/api/search?departure=${dep}&arrival=${arr}&outbound=${out}`);
     const data = await res.json();
-    const flights = data.best_flights || [];
+    const flights = data.best_flights || data.other_flights || data.flights || [];
 
     if (!flights.length) {
       resultsDiv.innerHTML = "<div class='card'>No flights found 😢</div>";
