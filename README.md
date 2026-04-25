@@ -30,3 +30,10 @@ People who have to book emergency flights, cheapest and safest flights ,and plan
 4. **Mockup** - A design for website created on FIGMA to help build a clean UI/UX layout for website.
 5. **index.html** - the fornt end for my app
 6. **api folder** - it is the folder holding my search.js
+
+---
+APP DEPLOYED:
+Domains
+volare-six.vercel.app
+volare-git-main-kid-nie-fc380451.vercel.app
+volare-mpsge8hqt-kid-nie-fc380451.vercel.app
