@@ -5,7 +5,6 @@
   <title>Volare</title>
 
   <style>
-    /* 🔥 GLOBAL RESET (fixes white bar) */
     html, body {
       margin: 0;
       padding: 0;
@@ -14,8 +13,6 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       color: #333;
     }
-
-    /* 🌤 BACKGROUND */
     .bg {
       position: fixed;
       top: 0;
@@ -28,8 +25,6 @@
       background-blend-mode: overlay;
       z-index: -1;
     }
-
-    /* ✈️ TITLE */
     .title {
       text-align: center;
       margin-top: 45px;
@@ -48,7 +43,6 @@
       font-size: 1rem;
     }
 
-    /* 📦 MAIN CONTAINER */
     .container {
       width: 90%;
       max-width: 800px;
@@ -56,8 +50,6 @@
       text-align: center;
       padding-bottom: 100px;
     }
-
-    /* 🧾 SEARCH BOX (UNCHANGED LOOK) */
     .search-box {
       background: white;
       padding: 30px;
@@ -110,7 +102,6 @@
       color: white;
     }
 
-    /* 📊 RESULT CARDS */
     .card {
       background: white;
       margin: 20px auto;
@@ -122,7 +113,6 @@
       border-left: 5px solid #8B0B0B;
     }
 
-    /* 🤖 CHAT BUTTON */
     .airia-btn {
       position: fixed;
       bottom: 20px;
@@ -138,17 +128,13 @@
 </head>
 
 <body>
-
-<!-- 🌤 BACKGROUND -->
 <div class="bg"></div>
 
-<!-- ✈️ TITLE -->
 <div class="title">
   <h1>Volare ✈️</h1>
   <p>Flying made easy</p>
 </div>
 
-<!-- 🧭 MAIN UI -->
 <div class="container">
 
   <div class="search-box">
@@ -180,13 +166,12 @@
   <div id="results"></div>
 </div>
 
-<!-- 🤖 AIRIA CHATBOT -->
 <script type="module">
 import AiriaChat from "https://embed-api.airia.ai/get-chat-embed.js"
 
 AiriaChat.init({
   pipelineId: "9c61dd1d-0ef0-4a6b-9ea0-7cc4b0b20fe8",
-  apiKey: "YOUR_API_KEY_HERE",
+  apiKey: "ak-MjQzNzg2OTUyM3wxNzc2OTY1NTAzOTY0fHRpLVpHVmpiMlJwYm1jZ1pHRjBZU0J6WTJsbGJtTmxMVTl3Wlc0Z1VtVm5hWE4wY21GMGFXOXVMVkJ5YjJabGMzTnBiMjVoYkY5aVpXVXdZbUl3T0MweE9USTNMVFF4TVdRdFlqSTVPUzB4WkRSak5HTTRaVFUwWWpRPXwxfDE0MjA5NzMzMDAg",
   apiUrl: "https://embed-api.airia.ai",
   greeting: "Hello! How can I assist you today?",
   imagePath: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png",
@@ -196,7 +181,6 @@ AiriaChat.init({
 })
 </script>
 
-<!-- ✈️ FLIGHT SEARCH -->
 <script>
 async function searchFlights() {
 
