@@ -18,9 +18,9 @@ People who have to book emergency flights, cheapest and safest flights ,and plan
 1. HTML, CSS, JSON -> FRONTEND
 2. PYTHON, FLASK API -> BACKEND
 3. GOOGLE FLIGHT BOOKING -> API
-4. GOOGLE GEMINI -> AI TECHNOLOGY
 5. AIRIA PLATFORM 'GEMINI 3- FLASH' AND 'BRAVE SEARCH MCP' TOOL USED  -> CHATBOT
-6. FIGMA -> MOCKUP 
+6. VERCEL- DEPLOYMENT
+7. FIGMA -> MOCKUP 
 
 ---
 ### Navigating my github files (documentation) :
@@ -28,3 +28,5 @@ People who have to book emergency flights, cheapest and safest flights ,and plan
 2. **Backup Images** - Incase of any API failure or credits running out, i have made a backup dataset storing details of flights(airline, route, model, time arrival, time destination, connecting flight, destination location, arrival location, price). A python code has been already made and tested for this backup dataset, implemented a fake AI on python to give pop up messages as intended in the planned project. Python file is also uploaded as **IPYNB** within.
 3. **Testing and Trial of code on PYTHON** - this file contains the above mentioned testing of dataset files with their input and output. All are stored as images.
 4. **Mockup** - A design for website created on FIGMA to help build a clean UI/UX layout for website.
+5. **index.html** - the fornt end for my app
+6. **api folder** - it is the folder holding my search.js
