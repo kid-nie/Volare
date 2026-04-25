@@ -2,6 +2,8 @@
 ## Save Time. Fly Smart.
 ### Flying made easy.
 
+link: https://volare-six.vercel.app
+
 An AI powered flight app that helps users decide when to book their tickets at the lowest price and where to book with the given budget. 
 
 ### Key Features:
