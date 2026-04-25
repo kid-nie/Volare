@@ -1,136 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Volare</title>
+  <meta charset="UTF-8">
+  <title>Volare</title>
 
-<style>
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  color: #333;
-}
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: transparent;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #333;
+    }
 
-.bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(to bottom, #87CEEB, #ffffff),
-              url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920')
-              center/cover no-repeat;
-  background-blend-mode: overlay;
-  z-index: -1;
-}
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, #87CEEB, #ffffff),
+                  url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920')
+                  center/cover no-repeat;
+      background-blend-mode: overlay;
+      z-index: -1;
+    }
 
-.title {
-  text-align: center;
-  margin-top: 40px;
-}
+    .title {
+      text-align: center;
+      margin-top: 45px;
+      margin-bottom: 10px;
+    }
 
-.title h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: #1f3b57;
-}
+    .title h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #1f3b57;
+    }
 
-.container {
-  width: 90%;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-  padding-bottom: 100px;
-}
+    .title p {
+      margin-top: 6px;
+      color: #4b6b88;
+      font-size: 1rem;
+    }
 
-.search-box {
-  background: white;
-  padding: 25px;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding-bottom: 100px;
+    }
 
-.field label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
+    .search-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
 
-input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  width: 150px;
-}
+    .field {
+      text-align: left;
+    }
 
-button {
-  padding: 10px 25px;
-  border-radius: 8px;
-  border: 2px solid #8B0B0B;
-  background: transparent;
-  color: #8B0B0B;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
-button:hover {
-  background: #8B0B0B;
-  color: white;
-}
+    input {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      width: 160px;
+      outline: none;
+    }
 
-/* FLIGHT CARD */
-.card {
-  background: white;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 16px;
-  width: 85%;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  border-left: 5px solid #8B0B0B;
-}
+    input:focus {
+      border-color: #8B0B0B;
+    }
 
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-}
+    button {
+      margin-top: 10px;
+      padding: 12px 30px;
+      border-radius: 8px;
+      border: 2px solid #8B0B0B;
+      background: transparent;
+      color: #8B0B0B;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.route {
-  text-align: center;
-  font-size: 1.2rem;
-  margin: 15px 0;
-}
+    button:hover {
+      background: #8B0B0B;
+      color: white;
+    }
+    .card {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 16px;
+      width: 85%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border-left: 5px solid #8B0B0B;
+    }
 
-.details {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: #555;
-}
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+    }
 
-.book-btn {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background: #8B0B0B;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .route {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
 
-.book-btn:hover {
-  opacity: 0.9;
-}
-</style>
+    .details {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .book-btn {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #8B0B0B;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      opacity: 0.9;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -139,34 +158,35 @@ button:hover {
 
 <div class="title">
   <h1>Volare ✈️</h1>
+  <p>Flying made easy</p>
 </div>
 
 <div class="container">
 
-<div class="search-box">
-  <div class="field">
-    <label>Departure</label>
-    <input id="departure" placeholder="DXB">
+  <div class="search-box">
+
+    <div class="field">
+      <label>Departure</label>
+      <input id="departure" placeholder="DXB">
+    </div>
+
+    <div class="field">
+      <label>Arrival</label>
+      <input id="arrival" placeholder="BLR">
+    </div>
+
+    <div class="field">
+      <label>Departure Date</label>
+      <input id="outbound" type="date">
+    </div>
+
+    <button onclick="searchFlights()">Search Flights</button>
+
   </div>
 
-  <div class="field">
-    <label>Arrival</label>
-    <input id="arrival" placeholder="BLR">
-  </div>
-
-  <div class="field">
-    <label>Date</label>
-    <input id="outbound" type="date">
-  </div>
-
-  <button onclick="searchFlights()">Search Flights</button>
+  <div id="results"></div>
 </div>
 
-<div id="results"></div>
-
-</div>
-
-<!-- ✈️ FLIGHT SCRIPT -->
 <script>
 async function searchFlights() {
 
@@ -177,7 +197,7 @@ async function searchFlights() {
   const resultsDiv = document.getElementById("results");
 
   if (!dep || !arr || !out) {
-    resultsDiv.innerHTML = `<div class="card">⚠️ Fill all fields</div>`;
+    resultsDiv.innerHTML = `<div class="card">⚠️ Please fill all fields</div>`;
     return;
   }
 
@@ -191,7 +211,6 @@ async function searchFlights() {
 
     const flights = data.best_flights || data.other_flights || data.flights || [];
 
-    /* 🔥 fallback if API fails */
     if (!flights.length) {
       resultsDiv.innerHTML = `
         <div class="card">
@@ -251,10 +270,11 @@ async function searchFlights() {
     });
 
   } catch (err) {
-    resultsDiv.innerHTML = `<div class="card">⚠️ API Error</div>`;
+    resultsDiv.innerHTML = `<div class="card">⚠️ Error fetching flights</div>`;
   }
 }
 </script>
+
 <script type="module">
 import AiriaChat from "https://embed-api.airia.ai/get-chat-embed.js"
 
