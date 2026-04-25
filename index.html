@@ -169,53 +169,60 @@
 
 
 <script>
-  async function searchFlights() {
-    const dep = document.getElementById("departure").value;
-    const arr = document.getElementById("arrival").value;
-    const out = document.getElementById("outbound").value;
-    const ret = document.getElementById("return").value;
+async function searchFlights() {
+  const dep = document.getElementById("departure").value.trim();
+  const arr = document.getElementById("arrival").value.trim();
+  const out = document.getElementById("outbound").value;
+  const ret = document.getElementById("return").value;
 
-    const resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = "<p>Searching... ✈️</p>";
+  const resultsDiv = document.getElementById("results");
 
-    try {
-      const res = await fetch(
-  `/api/search?departure=${dep}&arrival=${arr}&outbound=${out}&return=${ret}`
-);
-
-      const data = await res.json();
-      const flights = data.best_flights || data.other_flights || [];
-
-      if (flights.length === 0) {
-        resultsDiv.innerHTML = "<div class='card'>No flights found for those dates. Try another time! 😢</div>";
-        return;
-      }
-
-      resultsDiv.innerHTML = "";
-
-      flights.forEach(flight => {
-        const f = flight.flights?.[0];
-        if (!f) return;
-
-        resultsDiv.innerHTML += `
-          <div class="card">
-            <h2 style="color:#8B0B0B; margin-top:0;">${f.airline}</h2>
-            <p>💰 Price: <b>${flight.price || "N/A"}</b></p>
-            <p>⏱ Duration: ${flight.total_duration || "N/A"} mins</p>
-            <button onclick="window.location.href='/flightinfo?airline=${f.airline}&price=${flight.price}'">
-              Book This
-            </button>
-          </div>
-        `;
-      });
-
-    } catch (err) {
-resultsDiv.innerHTML = `
-    <div class='card'>
-      ⚠️ Error fetching flights. Check backend or API key.
-    </div>
-  `;   }
+  // ✅ INPUT VALIDATION (THIS FIXES YOUR ISSUE)
+  if (!dep || !arr || !out) {
+    resultsDiv.innerHTML = `
+      <div class='card'>
+        ⚠️ Please enter Departure, Arrival, and Date before searching ✈️
+      </div>
+    `;
+    return;
   }
+
+  resultsDiv.innerHTML = "<p>Searching flights... ✈️</p>";
+
+  try {
+    const res = await fetch(
+      `/api/search?departure=${dep}&arrival=${arr}&outbound=${out}&return=${ret}`
+    );
+
+    const data = await res.json();
+    const flights = data.best_flights || data.other_flights || [];
+
+    if (!flights.length) {
+      resultsDiv.innerHTML = "<div class='card'>No flights found 😢</div>";
+      return;
+    }
+
+    resultsDiv.innerHTML = "";
+
+    flights.forEach(flight => {
+      const f = flight.flights?.[0];
+      if (!f) return;
+
+      resultsDiv.innerHTML += `
+        <div class="card">
+          <h2>${f.airline}</h2>
+          <p>💰 ${flight.price || "N/A"}</p>
+          <p>⏱ ${flight.total_duration || "N/A"} mins</p>
+        </div>
+      `;
+    });
+
+  } catch (err) {
+    resultsDiv.innerHTML = `
+      <div class='card'>⚠️ Error fetching flights</div>
+    `;
+  }
+}
 
   // Handle auto-fill from the chatbot recommendation
   window.onload = () => {
