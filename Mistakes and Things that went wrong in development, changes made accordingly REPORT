@@ -1,0 +1,14 @@
+Volare's front end and back end logic weren't working according to plan, i had reported this on my linkedin as well. 
+The failure in establishing the api connection and getting the prompt to be sent to the Gemini model was delaying the deployment of the app and needed last minute changes.
+
+1. app was causing 404 error when launching
+2. gemini failed to create response
+3. chatbot wasn't working or responding when needed on front end
+4. user's desired response wasn't given
+
+changes made:
+i settled for a low UI/UX version of the website, the mockup gave a first creation sample but in creation process, i couldnt recreate it exactly.
+i have looked into various pages such as streamlit, github.io and make.com 
+
+i have chosen github.io as a website main page currently. If needed to improve for future developments, i will be taking more classes and learning into building my frontend to work with backend and with the apis as well.
+
