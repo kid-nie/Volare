@@ -5,18 +5,23 @@
   <title>Volare</title>
 
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
+    /* 🔥 GLOBAL RESET (fixes white bar) */
+    html, body {
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+      background: transparent;
+      font-family: 'Segoe UI', Arial, sans-serif;
       color: #333;
     }
 
-    /* Background */
+    /* 🌤 BACKGROUND */
     .bg {
       position: fixed;
-      width: 100%;
-      height: 100%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: linear-gradient(to bottom, #87CEEB, #ffffff),
                   url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920')
                   center/cover no-repeat;
@@ -24,7 +29,7 @@
       z-index: -1;
     }
 
-    /* Title */
+    /* ✈️ TITLE */
     .title {
       text-align: center;
       margin-top: 45px;
@@ -38,12 +43,12 @@
     }
 
     .title p {
-      margin-top: 5px;
+      margin-top: 6px;
       color: #4b6b88;
       font-size: 1rem;
     }
 
-    /* Container */
+    /* 📦 MAIN CONTAINER */
     .container {
       width: 90%;
       max-width: 800px;
@@ -52,7 +57,7 @@
       padding-bottom: 100px;
     }
 
-    /* Search box (UNCHANGED STYLE) */
+    /* 🧾 SEARCH BOX (UNCHANGED LOOK) */
     .search-box {
       background: white;
       padding: 30px;
@@ -105,7 +110,7 @@
       color: white;
     }
 
-    /* Cards */
+    /* 📊 RESULT CARDS */
     .card {
       background: white;
       margin: 20px auto;
@@ -117,7 +122,7 @@
       border-left: 5px solid #8B0B0B;
     }
 
-    /* Chat button */
+    /* 🤖 CHAT BUTTON */
     .airia-btn {
       position: fixed;
       bottom: 20px;
@@ -134,15 +139,16 @@
 
 <body>
 
+<!-- 🌤 BACKGROUND -->
 <div class="bg"></div>
 
-<!-- TITLE -->
+<!-- ✈️ TITLE -->
 <div class="title">
   <h1>Volare ✈️</h1>
   <p>Flying made easy</p>
 </div>
 
-<!-- MAIN APP -->
+<!-- 🧭 MAIN UI -->
 <div class="container">
 
   <div class="search-box">
@@ -174,7 +180,7 @@
   <div id="results"></div>
 </div>
 
-<!-- AIRIA CHATBOT -->
+<!-- 🤖 AIRIA CHATBOT -->
 <script type="module">
 import AiriaChat from "https://embed-api.airia.ai/get-chat-embed.js"
 
@@ -190,7 +196,7 @@ AiriaChat.init({
 })
 </script>
 
-<!-- FLIGHT SEARCH -->
+<!-- ✈️ FLIGHT SEARCH -->
 <script>
 async function searchFlights() {
 
@@ -201,11 +207,11 @@ async function searchFlights() {
 
   const resultsDiv = document.getElementById("results");
 
-  // INPUT CHECK
+  /* 🚨 INPUT CHECK */
   if (!dep || !arr || !out) {
     resultsDiv.innerHTML = `
       <div class="card">
-        ⚠️ Please enter Departure, Arrival and Date before searching
+        ⚠️ Please fill in Departure, Arrival, and Date
       </div>
     `;
     return;
