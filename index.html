@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Volare</title>
+
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -11,44 +12,38 @@
       color: #333;
     }
 
+    /* Background */
     .bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #87CEEB, #ffffff),
-              url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920') center/cover no-repeat;
-  background-blend-mode: overlay;
-  z-index: -1;
-}
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #87CEEB, #ffffff),
+                  url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920')
+                  center/cover no-repeat;
+      background-blend-mode: overlay;
+      z-index: -1;
+    }
 
-    <div style="text-align:center; padding-top:40px;">
-  <div style="
-    display:inline-block;
-    padding:10px 20px;
-    border-radius:30px;
-    background:rgba(255,255,255,0.6);
-    backdrop-filter: blur(10px);
-  ">
-    <h1 style="
-      margin:0;
-      font-size:2.6rem;
-      color:#1f3b57;
-      font-weight:700;
-      letter-spacing:1px;
-    ">
-      Volare ✈️
-    </h1>
+    /* Title */
+    .title {
+      text-align: center;
+      margin-top: 45px;
+      margin-bottom: 10px;
+    }
 
-    <p style="
-      margin:5px 0 0;
-      color:#4b6b88;
-      font-size:1rem;
-    ">
-      Find the cheapest flights in seconds
-    </p>
-  </div>
-</div>
+    .title h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #1f3b57;
+    }
 
+    .title p {
+      margin-top: 5px;
+      color: #4b6b88;
+      font-size: 1rem;
+    }
+
+    /* Container */
     .container {
       width: 90%;
       max-width: 800px;
@@ -57,6 +52,7 @@
       padding-bottom: 100px;
     }
 
+    /* Search box (UNCHANGED STYLE) */
     .search-box {
       background: white;
       padding: 30px;
@@ -109,6 +105,7 @@
       color: white;
     }
 
+    /* Cards */
     .card {
       background: white;
       margin: 20px auto;
@@ -118,43 +115,45 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       text-align: left;
       border-left: 5px solid #8B0B0B;
-      animation: slideUp 0.5s ease-out;
     }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    /* Chat button */
     .airia-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #8B0B0B, #c21818);
-  color: white;
-  padding: 14px 18px;
-  border-radius: 50px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  font-weight: bold;
-}
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #8B0B0B;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
+
 <body>
 
 <div class="bg"></div>
 
-<h1>Flying made easy</h1>
-<p style="text-align: center; margin-bottom: 30px;">Save time and money on flights.</p>
+<!-- TITLE -->
+<div class="title">
+  <h1>Volare ✈️</h1>
+  <p>Flying made easy</p>
+</div>
 
+<!-- MAIN APP -->
 <div class="container">
+
   <div class="search-box">
+
     <div class="field">
-      <label>Departure (From)</label>
+      <label>Departure</label>
       <input id="departure" placeholder="DXB">
     </div>
 
     <div class="field">
-      <label>Arrival (To)</label>
+      <label>Arrival</label>
       <input id="arrival" placeholder="BLR">
     </div>
 
@@ -169,25 +168,32 @@
     </div>
 
     <button onclick="searchFlights()">Search Flights</button>
+
   </div>
 
   <div id="results"></div>
 </div>
-    <script type="module">
-        import AiriaChat from "https://embed-api.airia.ai/get-chat-embed.js"
-        AiriaChat.init({pipelineId: "9c61dd1d-0ef0-4a6b-9ea0-7cc4b0b20fe8",
-                        apiKey: "ak-MjQzNzg2OTUyM3wxNzc2OTY1NTAzOTY0fHRpLVpHVmpiMlJwYm1jZ1pHRjBZU0J6WTJsbGJtTmxMVTl3Wlc0Z1VtVm5hWE4wY21GMGFXOXVMVkJ5YjJabGMzTnBiMjVoYkY5aVpXVXdZbUl3T0MweE9USTNMVFF4TVdRdFlqSTVPUzB4WkRSak5HTTRaVFUwWWpRPXwxfDE0MjA5NzMzMDAg",
-                        apiUrl: "https://embed-api.airia.ai",
-                        greeting: "Hello! How can I assist you today?",
-                        imagePath: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png",
-                        imageSize: "small",
-                        imageBgColor: "#FFFFFF",
-                        autoOpen: true})
-    </script>
 
+<!-- AIRIA CHATBOT -->
+<script type="module">
+import AiriaChat from "https://embed-api.airia.ai/get-chat-embed.js"
 
+AiriaChat.init({
+  pipelineId: "9c61dd1d-0ef0-4a6b-9ea0-7cc4b0b20fe8",
+  apiKey: "YOUR_API_KEY_HERE",
+  apiUrl: "https://embed-api.airia.ai",
+  greeting: "Hello! How can I assist you today?",
+  imagePath: "https://cdn-icons-png.flaticon.com/512/4712/4712035.png",
+  imageSize: "small",
+  imageBgColor: "#FFFFFF",
+  autoOpen: true
+})
+</script>
+
+<!-- FLIGHT SEARCH -->
 <script>
 async function searchFlights() {
+
   const dep = document.getElementById("departure").value.trim();
   const arr = document.getElementById("arrival").value.trim();
   const out = document.getElementById("outbound").value;
@@ -195,10 +201,11 @@ async function searchFlights() {
 
   const resultsDiv = document.getElementById("results");
 
+  // INPUT CHECK
   if (!dep || !arr || !out) {
     resultsDiv.innerHTML = `
-      <div class='card'>
-        ⚠️ Please enter Departure, Arrival, and Date before searching ✈️
+      <div class="card">
+        ⚠️ Please enter Departure, Arrival and Date before searching
       </div>
     `;
     return;
@@ -236,17 +243,10 @@ async function searchFlights() {
 
   } catch (err) {
     resultsDiv.innerHTML = `
-      <div class='card'>⚠️ Error fetching flights</div>
+      <div class="card">⚠️ Error fetching flights</div>
     `;
   }
 }
-  window.onload = () => {
-    const params = new URLSearchParams(window.location.search);
-    const destination = params.get("destination");
-    if (destination) {
-      document.getElementById("arrival").value = destination;
-    }
-  };
 </script>
 
 </body>
