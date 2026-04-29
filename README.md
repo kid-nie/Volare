@@ -9,8 +9,8 @@ An AI powered flight app that helps users decide when to book their tickets at t
 ### Key Features:
 1.	Can take input of budget and/or place they want to travel to.
 2.	Shows the flight information in table format. (airline, price, time, route/connection flights, model of plane)
-3.	Remind the user when prices drop.
-4.	Informing the user about the exact time they should plan to book their ticket.
+3.	Use the AI Chat to plan their vacation to their dream location that is accessible and within budget.
+4.	Show the cheapest Flights with the information given.
 
 ### Who is it meant for?
 People who have to book emergency flights, cheapest and safest flights ,and plan a vacation to their budget.
